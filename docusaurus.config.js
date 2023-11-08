@@ -3,12 +3,14 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Meta Middleware',
   tagline: 'To meta everywhere',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/ices.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -39,6 +41,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -54,20 +58,29 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+
       }),
     ],
   ],
-
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Metaverse Middleware Documentation',
+        title: 'Metaverse Service Middleware',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/ices.png',
         },
         items: [
           {
@@ -82,7 +95,7 @@ const config = {
           },
           {
             label: 'Content Delivery',
-            to: '/docs/content-delivery',
+            to: '/docs/content-delivery/metacdn',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {

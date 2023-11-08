@@ -40,7 +40,7 @@ To get started with Crossport, you need to prepare:
 
 ## Implement `CrossportDriver`
 
-You should create a new script, containing a class detriving `CrossportDriverBase`. The script should be attached to some GameObject as a Component. It contains the following members:
+You should create a new script, containing a class inheriting `CrossportDriverBase`. The script should be attached to some GameObject as a Component. It contains the following members:
 
 |Name|Type|Description|
 |---|---|---|
@@ -53,7 +53,7 @@ You should create a new script, containing a class detriving `CrossportDriverBas
 |defaultConfig|*Optional* SerializeField of base class|The default config to use if crossport setting file is not found, which can be configured in the Unity Editor UI|
 |disabled|*Optional* SerializeField of base class|Disable the drive. It can be configured in the Unity Editor UI.|
 
-Here is a example for sender drivers that are required for all remote renderer applications:
+Here is an example for sender drivers that are required for all remote renderer applications:
 
 ```csharp
 public class ExampleSenderDriver : CrossportDriverBase
